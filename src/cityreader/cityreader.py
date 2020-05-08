@@ -9,7 +9,7 @@ class City:
     self.lon = lon
 
   def __str__(self):
-    return f"{self.name}, {self.lat}, {self.lon}"
+    return f"({self.name}, {self.lat}, {self.lon})"
 
 # We have a collection of US cities with population over 750,000 stored in the
 # file "cities.csv". (CSV stands for "comma-separated values".)
@@ -31,8 +31,9 @@ def cityreader(cities=[]):
   # `cities` list
   with open("c:/Users/kris/Documents/GitHub/Sprint-Challenge--Intro-Python/src/cityreader/cities.csv") as csvfile:
     reading = csv.reader(csvfile)
+    next(reading)
     for row in reading:
-      cities.append(City(row[0], row[3], row[4]))
+      cities.append(City(row[0], float(row[3]), float(row[4])))
     return cities
 
 cityreader(cities)
@@ -71,13 +72,21 @@ for c in cities:
 # Salt Lake City: (40.7774,-111.9301)
 
 # TODO Get latitude and longitude values from the user
-
+# user = input("Enter lat1,lon1")
+# user2 = input("Enter lat2,lon2")
 def cityreader_stretch(lat1, lon1, lat2, lon2, cities=[]):
   # within will hold the cities that fall within the specified region
   within = []
 
   # TODO Ensure that the lat and lon valuse are all floats
+  
   # Go through each city and check to see if it falls within 
   # the specified coordinates.
-
+  # print("User",user)
+  # print("user2",user2)
+ 
+  # if user is not '':
+  #   new = [i.name for i in cities]
+  #   print("New", new)
+  # Check to see if lat and lon falls within specified
   return within
